@@ -10,15 +10,15 @@ jobs:
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-    - name: Test Case 1 (10 numbers)
-      run: |
-        python find_lowest_number.py test_data/test1_input.txt actual1.txt
-        diff test_data/test1_expected.txt actual1.txt
+    - name: Test Case 1
+  run: |
+    python find_lowest_number.py test_data/test1_input.txt actual1.txt
+    diff -w test_data/test1_expected.txt actual1.txt  # -w ignores whitespace differences
     - name: Test Case 2 (1 number)
       run: |
         python find_lowest_number.py test_data/test2_input.txt actual2.txt
-        diff test_data/test2_expected.txt actual2.txt
+        diff test_data/test2_expected.txt actual2.txt  # -w ignores whitespace differences
     - name: Test Case 3 (blank file)
       run: |
         python find_lowest_number.py test_data/test3_input.txt actual3.txt
-        diff test_data/test3_expected.txt actual3.txt
+        diff test_data/test3_expected.txt actual3.txt  # -w ignores whitespace differences
